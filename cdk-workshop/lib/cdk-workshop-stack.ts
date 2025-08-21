@@ -5,8 +5,12 @@ import { LambdaRestApi } from "aws-cdk-lib/aws-apigateway";
 import { HitCounter } from "./hitcounter";
 import { TableViewer } from "cdk-dynamo-table-viewer";
 
+interface CdkWorkshopStackProps extends StackProps {
+  environment: string;
+}
+
 export class CdkWorkshopStack extends Stack {
-  constructor(scope: Construct, id: string, props?: StackProps) {
+  constructor(scope: Construct, id: string, props?: CdkWorkshopStackProps) {
     super(scope, id, props);
 
     // defines an AWS Lambda resource
