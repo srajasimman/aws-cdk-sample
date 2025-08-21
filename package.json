@@ -8,5 +8,16 @@
   },
   "scripts": {
     "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --fix",
+    "*.{js,jsx}": "eslint --fix",
+    "*.{json,md}": "prettier --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "bun test"
+    }
   }
 }
